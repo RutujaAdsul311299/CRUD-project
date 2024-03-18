@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+
+    <link rel="stylesheet" href='{% static  "css/style.css" %}'>
+</head>
+
+<body>
+    <h1>Creat message</h1>
+    {% for x in data %}
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <table border="1" align="center">
+
+            <tr>
+                <td>Enter Name</td>
+                <td><input type="text" name="uname" value="{{x.name}}" placeholder="sender name"></td>
+
+            </tr>
+            <tr>
+                <td>Email id</td>
+                <td><input type="email" name="Email"  value="{{x.email}}"placeholder=" Enter Email"></td>
+            </tr>
+            <tr>
+                <td>Mobile no.</td>
+                <td><input type="number" name="umobile" value="{{x.mobile}}"placeholder=" sender mobile no."></td>
+            </tr>
+            <tr>
+                <td>message</td>
+                <td><textarea name="Message" value="{{x.message}}" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="Submit" value="send"></td>
+            </tr>
+        </table>
+    </form>
+    {% endfor %}
+</body>
+</html>
